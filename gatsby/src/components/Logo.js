@@ -4,20 +4,20 @@ import stripes from '../assets/images/stripes.svg';
 
 export default function Logo() {
   return (
-    <LogoStyles className="logo">
-      <div className="inner">
-        <span className="est">EST 1994</span>
+    <LogoStyles className='logo'>
+      <div className='inner'>
+        <span className='est'>EST 1994</span>
         <h1>
-          <span className="slicks">
-            <span className="letter S">S</span>
-            <span className="letter l">l</span>
-            <span className="letter i">i</span>
-            <span className="letter c">c</span>
-            <span className="letter k">k</span>
-            <span className="letter apos">'</span>
-            <span className="letter s">s</span>
+          <span className='slicks'>
+            <span className='letter S'>S</span>
+            <span className='letter l'>l</span>
+            <span className='letter i'>i</span>
+            <span className='letter c'>c</span>
+            <span className='letter k'>k</span>
+            <span className='letter apos'>'</span>
+            <span className='letter s'>s</span>
           </span>
-          <span className="slices">slices</span>
+          <span className='slices'>slices</span>
         </h1>
       </div>
     </LogoStyles>
@@ -26,8 +26,8 @@ export default function Logo() {
 
 const LogoStyles = styled.div`
   /* This value controls the entire size of the logo*/
-  font-size: 6px;
   font-size: clamp(1px, 0.65vw, 8px);
+  font-size: 6px;
   width: 30em;
   height: 30em;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);

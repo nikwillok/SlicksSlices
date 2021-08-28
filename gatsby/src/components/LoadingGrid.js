@@ -1,11 +1,11 @@
-import React from 'react'
-import { ItemsGrid, ItemStyles } from "../styles/Grids"
+import React from 'react';
+import { ItemsGrid, ItemStyles } from '../styles/Grids';
 
 const LoadingGrid = ({ count }) => {
   return (
     <ItemsGrid>
       {Array.from({ length: count }, (_, i) => (
-        <ItemStyles key={i}>
+        <ItemStyles key={`loadrer-${i}`}>
           <p>
             <span className='mark'>Loading...</span>
           </p>
@@ -14,12 +14,12 @@ const LoadingGrid = ({ count }) => {
             className='loading'
             alt='Loading'
             width='500'
-            height='400' 
+            height='400'
           />
         </ItemStyles>
       ))}
     </ItemsGrid>
   );
-}
+};
 
-export default LoadingGrid
+export default LoadingGrid;

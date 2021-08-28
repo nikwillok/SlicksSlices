@@ -8,21 +8,21 @@ const Nav = () => (
   <NavStyles>
     <ul>
       <li>
-        <Link to="/">Home</Link>
+        <Link to='/'>Home</Link>
       </li>
       <li>
-        <Link to="/pizzas">Pizzas</Link>
+        <Link to='/pizzas'>Pizzas</Link>
       </li>
-      <li>
-        <Link to="/">
+      <li className='logo-item'>
+        <Link to='/'>
           <Logo />
         </Link>
       </li>
       <li>
-        <Link to="/slicemasters">Slicemasters</Link>
+        <Link to='/slicemasters'>Slicemasters</Link>
       </li>
       <li>
-        <Link to="/order">Order</Link>
+        <Link to='/order'>Order</Link>
       </li>
     </ul>
   </NavStyles>
@@ -73,8 +73,33 @@ const NavStyles = styled.nav`
     &:hover {
       color: var(--red);
     }
+    @media (max-width: 800px) {
+      font-size: 2rem;
+    }
     &[aria-current='page'] {
       color: var(--red);
     }
+  }
+  @media (max-width: 600px) {
+    --columns: 4;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--grey);
+    padding-bottom: 2rem;
+
+    ul {
+      grid-template-rows: auto auto;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      justify-items: center;
+    }
+    .logo-item {
+      order: 0;
+      grid-column: 1 / -1;
+    }
+    .logo {
+      transform: none;
+    }
+  }
+  @media (max-width: 600px) {
+    --columns: 2;
   }
 `;

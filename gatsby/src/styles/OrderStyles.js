@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const OrderStyles = styled.form`
   display: grid;
@@ -22,10 +22,11 @@ const OrderStyles = styled.form`
   }
 
   @media (max-width: 900px) {
-    fieldset.menu, fieldset.order {
+    fieldset.menu,
+    fieldset.order {
       grid-column: span 2;
     }
   }
-`
+`;
 
-export default OrderStyles
+export default OrderStyles;
