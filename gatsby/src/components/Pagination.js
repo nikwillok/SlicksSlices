@@ -1,35 +1,44 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import styled from 'styled-components'
+import React from 'react';
+import { Link } from 'gatsby';
+import styled from 'styled-components';
 
-const Pagination = ({ pageSize, totalCount, currentPage,
-skip, base, }) => {
+const Pagination = ({ pageSize, totalCount, currentPage, skip, base }) => {
   const totalPages = Math.ceil(totalCount / pageSize);
-  const prevPage = currentPage - 1
-  const nextPage = currentPage + 1
-  const hasNextPage = nextPage <= totalPages
-  const hasPrevPage = prevPage >= 1
+  const prevPage = currentPage - 1;
+  const nextPage = currentPage + 1;
+  const hasNextPage = nextPage <= totalPages;
+  const hasPrevPage = prevPage >= 1;
 
   return (
     <PaginationStyles>
-      <Link disabled={!hasPrevPage} to={`${base}/${prevPage}`}>
-        &#8592; Prev
+      <Link
+        title='Prev Page'
+        disabled={!hasPrevPage}
+        to={`${base}/${prevPage}`}
+      >
+        &#8592; <span className='word'>Prev</span>
       </Link>
       {Array.from({ length: totalPages }).map((_, i) => (
-        <Link 
-          key={i}
-          className={currentPage === 1 && i === 0 ? 'current' : ''} 
-          to={`${base}/${i > 0 ? i + 1 : ''}`}>{i + 1}
+        <Link
+          key={`page-${i}`}
+          className={currentPage === 1 && i === 0 ? 'current' : ''}
+          to={`${base}/${i > 0 ? i + 1 : ''}`}
+        >
+          {i + 1}
         </Link>
       ))}
-      <Link disabled={!hasNextPage} to={`${base}/${nextPage}`}>
-        Next &#8594;
+      <Link
+        title='Next Page'
+        disabled={!hasNextPage}
+        to={`${base}/${nextPage}`}
+      >
+        <span className='word'>Next</span> &#8594;
       </Link>
     </PaginationStyles>
   );
-}
+};
 
-export default Pagination
+export default Pagination;
 
 const PaginationStyles = styled.div`
   display: flex;
@@ -47,11 +56,17 @@ const PaginationStyles = styled.div`
     text-decoration: none;
     &[aria-current],
     &.current {
-      color: var(--red)
+      color: var(--red);
     }
     &[disabled] {
       pointer-events: none;
-      color: var(--grey)
+      color: var(--grey);
     }
   }
-`
+  @media (max-width: 800px) {
+    .word {
+      display: none;
+    }
+    font-size: 1.4rem;
+  }
+`;
